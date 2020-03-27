@@ -22,7 +22,8 @@ class OperateExcel(object):
         names = self.sheet['D']
         custom_record_list = [name.value for name in names]
         custom_name_list = list(set(custom_record_list))
-        custom_name_list.remove(None)
+        if None in custom_name_list:
+            custom_name_list.remove(None)
         custom_name_list = [str(item) for item in custom_name_list]
         custom_name_list.remove('客户名称')
         for name in custom_name_list:
